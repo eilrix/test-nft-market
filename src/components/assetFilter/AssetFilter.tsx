@@ -69,7 +69,7 @@ export default function AssetFilter(props: {
         ></TextField>
       </Box>
 
-      <FormGroup sx={{ mx: 2, my: 1 }}>
+      <FormGroup sx={{ ml: 2, my: 1 }}>
         <FormControlLabel control={<Checkbox
           onChange={(e, checked) => onChange('buyNow', checked || undefined)}
         />} label="Buy now" />

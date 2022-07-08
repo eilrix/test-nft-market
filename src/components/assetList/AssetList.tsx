@@ -34,15 +34,19 @@ export default function AssetList({ assets, loading }: {
               onClick={() => window.open(asset.link, '_blank')}>
               {loading ? (
                 <Skeleton variant="rectangular" height="100%" width='100%' />
-              ) : (
-                <Image src={asset.image || ''} alt={asset.title}
-                  width='100%' height='100%' layout="fill"
+              ) : asset.image && (
+                <Image src={asset.image} alt={asset.title}
+                  width='100%' height="200px" layout="fill"
                   loader={() => asset.image || ''}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px 10px 0 0' }} />
+                  style={{ borderRadius: '10px 10px 0 0' }} />
               )}
             </Box>
-            <Box sx={{ p: 2 }}>
-              <Typography fontWeight={500} fontSize={'1em'} sx={{ cursor: 'pointer' }}
+            <Box sx={{ p: 2, minHeight: '100px' }}>
+              <Typography fontWeight={500} fontSize={'1em'} sx={{
+                cursor: 'pointer',
+                maxHeight: '50px',
+                overflow: 'hidden',
+              }}
                 onClick={() => window.open(asset.link, '_blank')}
               >{asset.title}</Typography>
               <Typography fontSize={'0.7em'}>{asset.author}</Typography>

@@ -11,7 +11,7 @@ import Drawer from '../components/drawer/Drawer';
 import { Asset, fetchAssets, Search } from '../utils/openseaClient';
 
 const Home: NextPage = () => {
-  const [assets, setAssets] = useState<Asset[]>();
+  const [assets, setAssets] = useState<Asset[]>(Array(20).fill({}));
   const [loading, setLoading] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
   const theme = useTheme();
@@ -24,6 +24,7 @@ const Home: NextPage = () => {
       setAssets(assets);
     } catch (error) {
       console.error(error);
+      setAssets([]);
     }
     setLoading(false);
   }, []);
@@ -40,10 +41,10 @@ const Home: NextPage = () => {
         <title>NFT Market</title>
       </Head>
       {!isMobile && (
-        <Box sx={{ mb: 3, mt: 2 }}>{filterContent}</Box>
+        <Box sx={{ mb: 4, mt: 2 }}>{filterContent}</Box>
       )}
       {isMobile && (
-        <Button onClick={() => setFilterOpen(!filterOpen)} sx={{ my: 2, mx: 1 }} variant="outlined">Open filter</Button>
+        <Button onClick={() => setFilterOpen(!filterOpen)} sx={{ mb: 2, mx: 1, bgColor: '#fff' }} variant="outlined">Open filter</Button>
       )}
 
       <AssetList assets={assets} loading={loading} />

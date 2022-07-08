@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-between', py: 2, alignItems: 'center' }}>
       <Box>
-        <Typography fontSize={'2rem'} fontWeight={600}>NFT Market</Typography>
+        <Typography fontSize={'2rem'} fontWeight={600} sx={{ mr: 1 }}>NFT Market</Typography>
       </Box>
       <Box sx={{
         display: 'flex', alignItems: 'center',
