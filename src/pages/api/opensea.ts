@@ -18,12 +18,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        const data = await (await fetch(`${OPENSEA_API_URL}/assets?${queryString
-            .stringify(req.query, { encode: false })}`)).json();
+        const seaRes = await fetch(`${OPENSEA_API_URL}/assets?${queryString
+            .stringify(req.query, { encode: false })}`);
+
+        const data = await seaRes.json();
+
+        if (seaRes.status >= 400) {
+            throw new Error(`Request failed: ${JSON.stringify(data || '')}`);
+        }
         res.status(200).json(data);
-    } catch (error) {
+    } catch (error: any) {
         console.error(error);
-        res.status(500).send(error);
+        res.status(500).json({ error: error.message });
     }
 
 }
