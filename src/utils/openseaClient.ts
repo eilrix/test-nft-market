@@ -1,4 +1,5 @@
 import queryString from 'query-string';
+import { toast } from 'react-toastify';
 
 export type Asset = {
     title?: string;
@@ -24,5 +25,13 @@ export async function fetchAssets(options?: Search): Promise<Asset[]> {
         { encode: false });
 
     const res = await fetch(`api/opensea?${query}`);
+    if (res.status >= 400) {
+        if (res.status === 429) {
+            toast.error('Too many requests');
+        } else {
+            toast.error('OpenSea API error');
+        }
+        throw new Error(`Request failed: ${res.status}`);
+    }
     return res.json();
 }

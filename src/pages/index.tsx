@@ -20,7 +20,7 @@ const Home: NextPage = () => {
   const updateAssets = useCallback(async (search: Search) => {
     setLoading(true);
     try {
-      const assets = await fetchAssets(search)
+      const assets = await fetchAssets(search);
       setAssets(assets);
     } catch (error) {
       console.error(error);

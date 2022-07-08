@@ -17,7 +17,7 @@ export default function AssetFilter(props: {
   const { updateAssets, loading } = props;
   const search = useRef<Search>({});
 
-  const onChangeDebounced = useCallback(debounce(300, () => {
+  const onChangeDebounced = useCallback(debounce(500, () => {
     updateAssets(search.current);
   }), []);
 
