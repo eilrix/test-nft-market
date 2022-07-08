@@ -7,7 +7,7 @@ import React, { useCallback, useRef } from 'react';
 import { debounce } from 'throttle-debounce';
 
 import { NumberFormatCustom } from '../../utils/NumberFormat';
-import { Search } from '../../utils/opensea';
+import { Search } from '../../utils/openseaClient';
 
 
 export default function AssetFilter(props: {

@@ -8,7 +8,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import AssetFilter from '../components/assetFilter/AssetFilter';
 import AssetList from '../components/assetList/AssetList';
 import Drawer from '../components/drawer/Drawer';
-import { Asset, fetchAssets, Search } from '../utils/opensea';
+import { Asset, fetchAssets, Search } from '../utils/openseaClient';
 
 const Home: NextPage = () => {
   const [assets, setAssets] = useState<Asset[]>();

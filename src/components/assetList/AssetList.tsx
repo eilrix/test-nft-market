@@ -3,7 +3,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Image from 'next/image';
 import React from 'react';
 
-import { Asset } from '../../utils/opensea';
+import { Asset } from '../../utils/openseaClient';
 
 export default function AssetList({ assets, loading }: {
   assets?: Asset[];
